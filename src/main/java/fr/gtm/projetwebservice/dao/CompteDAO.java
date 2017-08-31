@@ -14,10 +14,9 @@ public class CompteDAO  extends AbstractDAO {
 	/**
 	 * Get Compte from database by his idClient
 	 * @param idClient int : client id
-	 * @return Compte
 	 * @throws SQLException 
 	 */
-	public Compte getCompteByIdClient(int idClient) throws SQLException {
+	public void getCompteByIdClient(int idClient) throws SQLException {
 		Compte compte = null;
 		
 		Connection connection = getConnection();
@@ -34,8 +33,11 @@ public class CompteDAO  extends AbstractDAO {
 			compte.setBalance(rs.getFloat("balance"));
 		}
 		
-		return compte;
+		//return compte;
+		System.out.println(compte);
+		
 	}
+	
 	
 	
 

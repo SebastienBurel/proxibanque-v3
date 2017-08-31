@@ -2,28 +2,67 @@ package fr.gtm.projetwebservice.domaine;
 
 public class Conseiller {
 	
-	private long id;
+	private long idConseiller;
+	private String surname;
+	private String name;
 	private String login;
 	private String password;
 	
-	public long getId() {
-		return id;
+	public Conseiller(long idConseiller, String surname, String name, String login, String password) {
+		super();
+		this.idConseiller = idConseiller;
+		this.surname = surname;
+		this.name = name;
+		this.login = login;
+		this.password = password;
 	}
-	public void setId(long id) {
-		this.id = id;
+
+	public Conseiller() {
+		super();
 	}
+
+	public long getIdConseiller() {
+		return idConseiller;
+	}
+
+	public void setIdConseiller(long idConseiller) {
+		this.idConseiller = idConseiller;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getLogin() {
 		return login;
 	}
+
 	public void setLogin(String login) {
 		this.login = login;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
+	
 	
 	
 	

@@ -58,7 +58,7 @@ public class ValidAuthentification extends HttpServlet{
 
 			// Put conseiller login and id in session
 			session.setAttribute("conseillerLogin", conseiller.getLogin());
-			session.setAttribute("conseillerId", conseiller.getId());
+			session.setAttribute("conseillerId", conseiller.getIdConseiller());
 			
 			// Remove error message of login
 			session.removeAttribute("errorLogin");

@@ -29,7 +29,7 @@ public class ConseillerDAO extends AbstractDAO {
 			conseiller = new Conseiller();
 			conseiller.setLogin(rs.getString("login"));
 			conseiller.setPassword(rs.getString("password"));
-			conseiller.setId(rs.getLong("idconseiller"));
+			conseiller.setIdConseiller(rs.getLong("idconseiller"));
 		}
 		
 		return conseiller;

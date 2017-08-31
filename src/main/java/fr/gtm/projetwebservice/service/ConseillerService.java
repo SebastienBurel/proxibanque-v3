@@ -1,4 +1,4 @@
-package fr.gtm.projetwebservice.presentation;
+package fr.gtm.projetwebservice.service;
 
 import java.sql.SQLException;
 

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import fr.gtm.projetwebservice.domaine.Conseiller;
 import fr.gtm.projetwebservice.presentation.AuthentificationService;
-import fr.gtm.projetwebservice.presentation.ConseillerService;
 
 
 public class ValidAuthentification extends HttpServlet{

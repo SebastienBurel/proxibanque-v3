@@ -20,19 +20,22 @@ public class CompteDAO  extends AbstractDAO {
 
 	public void getCompteByIdClient(int idClient) throws SQLException {
 
-		Statement st =null;
+//		Statement st =null;
+		PreparedStatement st = null;
 		ResultSet rs =null;
 		Compte compte = null;
 		Connection connection = null;
 		
 		try {
 		connection = getConnection();
-		st = connection.createStatement();
-		
-//		String sql = "SELECT idNumber, idClient, balance FROM compte WHERE idClient = ? ";
-		String sql = "SELECT idNumber, idClient, balance FROM compte WHERE idClient = 10001";
+//		st = connection.createStatement();
 
-		rs = st.executeQuery(sql);
+		String sql = "SELECT idNumber, idClient, balance FROM compte WHERE idClient = ?" ;
+		st = connection.prepareStatement(sql);
+		st.setLong(1, idClient);		
+//		String sql = "SELECT idNumber, idClient, balance FROM compte WHERE idClient = 10001";
+
+		rs = st.executeQuery();
 	
 		while (rs.next()) {
 			System.out.println(rs.getString("idnumber") + " " + rs.getString("balance"));

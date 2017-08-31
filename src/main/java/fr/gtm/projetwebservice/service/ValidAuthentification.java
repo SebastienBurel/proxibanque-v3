@@ -63,7 +63,7 @@ public class ValidAuthentification extends HttpServlet{
 			session.removeAttribute("errorLogin");
 			
 			// Choose to go on list of client jsp
-			dispatcher = request.getRequestDispatcher("/listofclients.jsp");
+			dispatcher = request.getRequestDispatcher("/html/listofclients.jsp");
 		}
 		else {
 			
@@ -74,7 +74,7 @@ public class ValidAuthentification extends HttpServlet{
 			session.setAttribute("errorLogin", "Echec authentification Conseiller. Essayer à nouveau");
 			
 			// Choose to go back on authentification jsp
-			dispatcher = request.getRequestDispatcher("/authentification.jsp?error");
+			dispatcher = request.getRequestDispatcher("Authentification.jsp?error");
 		}
 		
 		// Redirect to the jsp chose before

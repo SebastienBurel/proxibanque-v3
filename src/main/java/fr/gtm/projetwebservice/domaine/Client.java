@@ -2,6 +2,7 @@ package fr.gtm.projetwebservice.domaine;
 
 public class Client {
 	
+	private int idClient;
 	private int idConseiller;
 	private String surname;
 	private String name;
@@ -11,9 +12,10 @@ public class Client {
 	private String telephone;
 	private String email;
 	
-	public Client(int idConseiller, String surname, String name, String adress, String zipCode, String city,
+	public Client(int idClient, int idConseiller, String surname, String name, String adress, String zipCode, String city,
 			String telephone, String email) {
 		super();
+		this.idClient = idClient;
 		this.idConseiller = idConseiller;
 		this.surname = surname;
 		this.name = name;
@@ -91,6 +93,16 @@ public class Client {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public int getIdClient() {
+		return idClient;
+	}
+
+	public void setIdClient(int idClient) {
+		this.idClient = idClient;
+	}
+	
+	
 	
 	
 

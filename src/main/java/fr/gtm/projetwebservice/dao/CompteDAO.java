@@ -35,6 +35,7 @@ public class CompteDAO  extends AbstractDAO {
 		
 		//return compte;
 		System.out.println(compte);
+		
 	}
 	
 	

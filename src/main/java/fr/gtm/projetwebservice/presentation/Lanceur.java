@@ -1,10 +1,16 @@
 package fr.gtm.projetwebservice.presentation;
 
+import fr.gtm.projetwebservice.dao.CompteDAO;
+
 public class Lanceur {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		
+		CompteDAO compteDAO = new CompteDAO();
+		
+		compteDAO.getCompteByIdClient(idClient);
+		
 	}
 
 }

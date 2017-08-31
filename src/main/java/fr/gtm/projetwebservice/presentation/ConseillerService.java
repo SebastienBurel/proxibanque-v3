@@ -29,6 +29,11 @@ public class ConseillerService {
 	}
 	
 	
+	/**
+	 * Get compte by its idClient
+	 * @param idClient client id
+	 * @return compte
+	 */
 	public Compte getCompteByIdClient(int idClient) {
 		Compte compte = null;
 		try {

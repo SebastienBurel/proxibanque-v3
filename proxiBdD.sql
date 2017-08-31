@@ -8,31 +8,31 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema proxiBdD
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema proxiBdD
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `proxiBdD` DEFAULT CHARACTER SET utf8 ;
+USE `proxiBdD` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`conseilleClient`
+-- Table `proxiBdD`.`conseilleClient`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`conseilleClient` (
+CREATE TABLE IF NOT EXISTS `proxiBdD`.`conseilleClient` (
   `id_cons` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NULL,
-  `prenom` INT NULL,
+  `prenom` VARCHAR(45) NULL,
   `no_agence` INT NULL,
   PRIMARY KEY (`id_cons`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`client`
+-- Table `proxiBdD`.`client`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`client` (
+CREATE TABLE IF NOT EXISTS `proxiBdD`.`client` (
   `id_client` INT NOT NULL,
   `id_cons` INT NULL,
   `nom` VARCHAR(45) NULL,
@@ -45,16 +45,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`client` (
   PRIMARY KEY (`id_client`),
   CONSTRAINT `id_cons`
     FOREIGN KEY (`id_cons`)
-    REFERENCES `mydb`.`conseilleClient` (`id_cons`)
+    REFERENCES `proxiBdD`.`conseilleClient` (`id_cons`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`comptes`
+-- Table `proxiBdD`.`comptes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`comptes` (
+CREATE TABLE IF NOT EXISTS `proxiBdD`.`comptes` (
   `n_cpte` INT NOT NULL,
   `solde` DOUBLE NULL,
   `type` INT NULL,
@@ -64,21 +64,21 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`portefeuille`
+-- Table `proxiBdD`.`portefeuille`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`portefeuille` (
+CREATE TABLE IF NOT EXISTS `proxiBdD`.`portefeuille` (
   `id_cpt` INT NOT NULL,
   `id_cl` INT NOT NULL,
   INDEX `id_client_idx` (`id_cl` ASC),
   PRIMARY KEY (`id_cpt`, `id_cl`),
   CONSTRAINT `id_client`
     FOREIGN KEY (`id_cl`)
-    REFERENCES `mydb`.`client` (`id_client`)
+    REFERENCES `proxiBdD`.`client` (`id_client`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `n_cpte`
     FOREIGN KEY (`id_cpt`)
-    REFERENCES `mydb`.`comptes` (`n_cpte`)
+    REFERENCES `proxiBdD`.`comptes` (`n_cpte`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -89,39 +89,39 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `mydb`.`conseilleClient`
+-- Data for table `proxiBdD`.`conseilleClient`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`conseilleClient` (`id_cons`, `nom`, `prenom`, `no_agence`) VALUES (1, 'Burel', sebastien, 1);
-INSERT INTO `mydb`.`conseilleClient` (`id_cons`, `nom`, `prenom`, `no_agence`) VALUES (2, 'Torres', ludovic, 1);
+USE `proxiBdD`;
+INSERT INTO `proxiBdD`.`conseilleClient` (`id_cons`, `nom`, `prenom`, `no_agence`) VALUES (1, 'Burel', 'sebastien', 1);
+INSERT INTO `proxiBdD`.`conseilleClient` (`id_cons`, `nom`, `prenom`, `no_agence`) VALUES (2, 'Torres', 'ludovic', 1);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `mydb`.`client`
+-- Data for table `proxiBdD`.`client`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`client` (`id_client`, `id_cons`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `telephone`) VALUES (10001, 1, 'Botha', 'bakkies', '1 rue du passage', 83000, 'Toulon', NULL);
-INSERT INTO `mydb`.`client` (`id_client`, `id_cons`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `telephone`) VALUES (10002, 1, 'Wilkinson', 'johnny', '44 impasse du val', 83200, 'Toulon', NULL);
-INSERT INTO `mydb`.`client` (`id_client`, `id_cons`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `telephone`) VALUES (10003, 2, 'Smith', 'juan', '7 rue de la', 31000, 'Toulouse', NULL);
+USE `proxiBdD`;
+INSERT INTO `proxiBdD`.`client` (`id_client`, `id_cons`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `telephone`) VALUES (10001, 1, 'Botha', 'bakkies', '1 rue du passage', 83000, 'Toulon', NULL);
+INSERT INTO `proxiBdD`.`client` (`id_client`, `id_cons`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `telephone`) VALUES (10002, 1, 'Wilkinson', 'johnny', '44 impasse du val', 83200, 'Toulon', NULL);
+INSERT INTO `proxiBdD`.`client` (`id_client`, `id_cons`, `nom`, `prenom`, `adresse`, `code_postal`, `ville`, `telephone`) VALUES (10003, 2, 'Smith', 'juan', '7 rue de la', 31000, 'Toulouse', NULL);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `mydb`.`comptes`
+-- Data for table `proxiBdD`.`comptes`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `mydb`;
-INSERT INTO `mydb`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054890, 1000, 1, '');
-INSERT INTO `mydb`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054891, -4200, 2, '');
-INSERT INTO `mydb`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054892, 500, 3, NULL);
-INSERT INTO `mydb`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054893, 1000, 1, NULL);
-INSERT INTO `mydb`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054896, 50, 2, NULL);
-INSERT INTO `mydb`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054897, -500, 3, NULL);
+USE `proxiBdD`;
+INSERT INTO `proxiBdD`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054890, 1000, 1, '');
+INSERT INTO `proxiBdD`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054891, -4200, 2, '');
+INSERT INTO `proxiBdD`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054892, 500, 3, NULL);
+INSERT INTO `proxiBdD`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054893, 1000, 1, NULL);
+INSERT INTO `proxiBdD`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054896, 50, 2, NULL);
+INSERT INTO `proxiBdD`.`comptes` (`n_cpte`, `solde`, `type`, `ouverture`) VALUES (10054897, -500, 3, NULL);
 
 COMMIT;
 

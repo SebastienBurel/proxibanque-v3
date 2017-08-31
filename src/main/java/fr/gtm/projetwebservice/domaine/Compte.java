@@ -40,6 +40,12 @@ public class Compte {
 	public void setBalance(float balance) {
 		this.balance = balance;
 	}
+
+	@Override
+	public String toString() {
+		return "Compte [idNumber=" + idNumber + ", idClient=" + idClient + ", balance=" + balance + "]";
+	}
+	
 	
 	
 	

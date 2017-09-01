@@ -1,6 +1,8 @@
+CREATE DATABASE  IF NOT EXISTS `proxidb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `proxidb`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: proxibd
+-- Host: localhost    Database: proxidb
 -- ------------------------------------------------------
 -- Server version	5.7.19-log
 
@@ -44,7 +46,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (10001,1,'Botha','bakkies','1, rue du passage','83000','toulon',NULL,NULL),(10002,1,'Wilkinson','johnny','44 impasse du chateau','83200','toulon',NULL,NULL),(10003,2,'Smith','juan','8 rue de la paix','31000','toulouse',NULL,NULL);
+INSERT INTO `client` VALUES (1,1,'Botha','bakkies','1, rue du passage','83000','toulon',NULL,NULL),(2,1,'Wilkinson','johnny','44 impasse du chateau','83200','toulon',NULL,NULL),(3,2,'Smith','juan','8 rue de la paix','31000','toulouse',NULL,NULL);
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,4 +115,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-31 14:58:15
+-- Dump completed on 2017-09-01  9:36:51

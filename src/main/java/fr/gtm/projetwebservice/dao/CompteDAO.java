@@ -5,25 +5,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+//import java.sql.Statement;
+import java.util.ArrayList;
 
 import fr.gtm.projetwebservice.domaine.Compte;
-import fr.gtm.projetwebservice.domaine.Conseiller;
+//import fr.gtm.projetwebservice.domaine.Conseiller;
 
 public class CompteDAO  extends AbstractDAO {
 
-	/**
-	 * Get Compte from database by his idClient
-	 * @param idClient int : client id
-	 * @throws SQLException 
-	 */
-
-	public void getCompteByIdClient(int idClient) throws SQLException {
+	public ArrayList<Compte> getCompteByIdClient(int idClient) throws SQLException {
 
 //		Statement st =null;
 		PreparedStatement st = null;
 		ResultSet rs =null;
-		Compte compte = null;
+		Compte cpt = new Compte();
+		ArrayList<Compte> comptes = new ArrayList<Compte>();
 		Connection connection = null;
 		
 		try {
@@ -38,29 +34,27 @@ public class CompteDAO  extends AbstractDAO {
 		rs = st.executeQuery();
 	
 		while (rs.next()) {
-			System.out.println(rs.getString("idnumber") + " " + rs.getString("balance"));
-			
+			cpt = new Compte();
+			System.out.println(rs.getInt("idnumber") + " " + rs.getFloat("balance"));
+			cpt.setIdNumber(rs.getInt("idNumber"));
+			cpt.setIdClient(rs.getInt("idClient"));
+			cpt.setBalance(rs.getFloat("balance"));
+			comptes.add(cpt);
+
 		}
 	} catch (SQLException e) {
 		e.printStackTrace();
 	} finally {
 		try {
-//		compte.setIdNumber(rs.getInt("idNumber"));
-//		compte.setIdClient(rs.getInt("idClient"));
-//		compte.setBalance(rs.getFloat("balance"));
-		
-//	} catch (SQLException e) {
-//		e.printStackTrace();
-//	}finally {
-//		try {
 			connection.close();
 			st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		//return compte;
-		System.out.println(rs);
 		}
+		for(int i=0; i<comptes.size();i++) {
+			System.out.println("la donnée associée à l'indice "+ i + " est " + comptes.get(i));
+		}	
+		return comptes;
 	}
-}		
+}

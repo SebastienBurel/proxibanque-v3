@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="fr.gtm.projetwebservice.domaine.Conseiller" %>
+<%@ page import="fr.gtm.projetwebservice.domaine.Compte" %>
+<%@ page import="fr.gtm.projetwebservice.service.ConseillerService" %>
+<%@ page import="fr.gtm.projetwebservice.domaine.ResultatVirement" %>
+
 <%@ page session="true"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -15,33 +19,28 @@
 
 <script>
 
-var compte1 = document.getElementById("soldeCompte1");
-compte1.style.display="block";
-var compte2 = document.getElementById("soldeCompte2");
-compte2.style.display="block";
+function TransferMoney() {
+	
+	
+	let table="<tr><th>Numero de compte</th><th>Solde avant operation</th><th>solde apres operation</th></tr>";
 
-var num1 = document.getElementById("idCompte1").value;
-var num2 = document.getElementById("idCompte2").value;
-var amount = document.getElementById("montant").value;
+	table += "<tr><td>" +				   
+	idNumberCredit + "</td><td>" +
+	r.balanceCredit + "</td><td>" +
+	r.newBalanceCredit + "</td><td>" ;
+						
 
+	table += "<tr><td>" +				   
+	idNumberDebit + "</td><td>" +
+	r.balanceDebit + "</td><td>" +
+	r.newBalanceDebit + "</td><td>" ;
+							
 
-function Compte(id=0,solde=0){
-	let compte = {};
-	compte.id = id ;
-	compte.solde = solde ;
-	return compte;
-}
-function virement(c1,c2,amount){
-	c1.solde -= amount ;
-	c2.solde += amount ;
-}
-function transfer(){
-	c1 = new Compte(num1,2000);
-	c2 = new Compte(num2,4000);
-	virement(c1,c2,amount);
-	compte1.innerHTML = "compte numéro "+c1.id +" > solde = "+ c1.solde ;
-	compte2.innerHTML = "compte numéro "+c2.id +" > solde = "+ c2.solde ;
-}
+	let elementDiv = document.getElementById("divResultat2");
+	elementDiv.innerHTML = table;
+	elementDiv.style.display = "block";
+	
+	
 </script>
 
 <title>Proxi Banque Web Static</title>
@@ -95,29 +94,46 @@ function transfer(){
       </nav>
     </header>
  
-			<form>
+			<form method = "POST" action="/presentation/ServletMoneyTransfert">
 			
 			  <div class="form-group">
-			    <label for="idCompte1">Account number 1 :</label>
-			    <input type="number" class="form-control" id="idCompte1">
+			    <label for="idCompte1">Account to Credit :</label>
+			    <input type="number" class="form-control" id="idCompte1" name="idCredit">
 			  </div>
 			  
 			  <div class="form-group">
-			    <label for="idCompte2">Account number 2 :</label>
-			    <input type="number" class="form-control" id="idCompte2">
+			    <label for="idCompte2">Account to Debit :</label>
+			    <input type="number" class="form-control" id="idCompte2" name="idDebit">
 			  </div>
 			  
 			  <div class="form-group">
 			    <label for="amount">Amount :</label>
-			    <input type="number" class="form-control" id="amount">
+			    <input type="number" class="form-control" id="amount" name="amount">
 			  </div>
 			  
-			  <input type="button" onclick="transfer();" class="btn btn-success" value="Transfer">
+			  <input type="submit" class="btn btn-success" value="Transfer">
 			</form> 
 			<br/>
 			<br/>
 			<br/>
-			<div id="soldeCompte1"  class="alert alert-success" style="display:none"></div>
+			<div id="soldeCompte1"  class="alert alert-success" style="display:none">
+			<%
+			Compte compteC = (Compte) session.getAttribute("CompteCredit");
+			Compte compteD = (Compte) session.getAttribute("CompteDebit");
+			
+			ConseillerService conseillerService = new ConseillerService();
+			int idNumberCredit = compteC.getIdNumber();
+			int idNumberDebit = compteD.getIdNumber();
+			double amount =  compteC.getAmount();
+			ResultatVirement r = conseillerService.moneyTransfer(idNumberCredit, idNumberDebit, (float) amount);
+			
+			
+		
+			%>
+			
+			</div>
+			<div id="divResultat2" class="alert alert-success"
+				style="display: none"></div>
 			<div id="soldeCompte2"  class="alert alert-success" style="display:none"></div>
 			
 		</div>

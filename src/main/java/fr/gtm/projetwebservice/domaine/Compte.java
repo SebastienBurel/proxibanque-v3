@@ -5,12 +5,14 @@ public class Compte {
 	private int idNumber;
 	private int idClient;
 	private float balance;
+	double amount;
 	
 	public Compte(int idNumber, int idClient, float balance) {
 		super();
 		this.idNumber = idNumber;
 		this.idClient = idClient;
 		this.balance = balance;
+		
 	}
 	
 	
@@ -20,6 +22,16 @@ public class Compte {
 		super();
 		this.idNumber = idNumber;
 		this.balance = balance;
+	}
+
+	
+
+
+
+	public Compte(int idNumber, double amount) {
+		super();
+		this.idNumber = idNumber;
+		this.amount = amount;
 	}
 
 
@@ -52,6 +64,22 @@ public class Compte {
 	public void setBalance(float balance) {
 		this.balance = balance;
 	}
+	
+	
+
+	public double getAmount() {
+		return amount;
+	}
+
+
+
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+
+
 
 	@Override
 	public String toString() {

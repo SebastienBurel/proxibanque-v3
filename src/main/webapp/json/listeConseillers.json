@@ -1,0 +1,12 @@
+[
+{
+	"inputLogin":"azerty","inputPassword":"pass1","clients":[
+			{"nom":"DeNiro","prenom":"Robert","email":"vfhregh@gmail.com","adresse":"023 rue de Bayonne,Toulouse"},
+			{"nom":"Pacino","prenom":"Al","email":"gtm@free.fr","adresse":"blabla"},
+			{"nom":"Marunica","prenom":"Sanja","email":"test@yahoo.fr","adresse":"123 rue de la paix,Toulouse"},
+			{"nom":"Tran","prenom":"Richard","email":"azerty@yahoo.fr","adresse":"456 avenue Foch,Paris"}
+		]
+},
+{
+	"inputLogin":"test","inputPassword":"pass2"}
+]

@@ -1,0 +1,104 @@
+body { margin:10; background-color: transparent;}
+
+h1 {color: white;}
+
+a:link {
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: red;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: green;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.icon-bar {
+    width: 100%; /* Full-width */
+    background-color: #808080; 
+    overflow: auto; /* Overflow due to float */
+}
+
+.icon-bar a {
+    float: left; /* Float links side by side */
+    text-align: center; /* Center-align text */
+ /*   width: 20%; /* Equal width (5 icons with 20% width each = 100%)	*/
+	width: 20%; /* Equal width (6 icons with 16% width each = 100%)
+    padding: 12px 0; /* Some top and bottom padding */
+    transition: all 0.3s ease; /* Add transition for hover effects */
+    color: white; /* White text color */
+    font-size: 36px; /* Increased font size */
+}
+
+.icon-bar a:hover {
+    background-color: transparent; /* Add a hover color */
+}
+
+.active {
+    background-color: #000; /* Add an active/current color #4CAF50 */
+}
+
+
+img {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+h1 {
+    display: block;
+    margin-left: 15em;   
+}
+
+h2 {
+    display: block;
+    margin-left: 15em;   
+}
+
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+form {
+    display: block;
+    margin-left: 20em;   
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}

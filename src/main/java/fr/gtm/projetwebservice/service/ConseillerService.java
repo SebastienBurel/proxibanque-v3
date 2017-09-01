@@ -1,6 +1,7 @@
 package fr.gtm.projetwebservice.service;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import fr.gtm.projetwebservice.dao.CompteDAO;
 import fr.gtm.projetwebservice.dao.ConseillerDAO;
@@ -34,8 +35,8 @@ public class ConseillerService {
 	 * @param idClient client id
 	 * @return compte
 	 */
-	public Compte getCompteByIdClient(int idClient) {
-		Compte compte = null;
+	public ArrayList<Compte> getCompteByIdClient(int idClient) {
+		ArrayList<Compte> compte = null;
 		try {
 			compte = compteDAO.getCompteByIdClient(idClient);
 		} catch (SQLException e) {

@@ -57,4 +57,48 @@ public class CompteDAO  extends AbstractDAO {
 		}	
 		return comptes;
 	}
-}
+	
+	public float getBalanceByIdCompte(int idNumber) throws SQLException {
+
+//		Statement st =null;
+		PreparedStatement st = null;
+		ResultSet rs =null;
+		Compte cpt = new Compte();
+		float balance = 0;
+		Connection connection = null;
+		
+		try {
+		connection = getConnection();
+//		st = connection.createStatement();
+
+		String sql = "SELECT idNumber, idClient, balance FROM compte WHERE idNumber = ?" ;
+		st = connection.prepareStatement(sql);
+		st.setLong(1, idNumber);		
+//		String sql = "SELECT idNumber, idClient, balance FROM compte WHERE idClient = 10001";
+
+		rs = st.executeQuery();
+	
+		
+		while (rs.next()) {
+		//System.out.println(rs.getInt("idnumber") + " " + rs.getFloat("balance"));
+			cpt.setIdNumber(rs.getInt("idNumber"));
+			cpt.setIdClient(rs.getInt("idClient"));
+			cpt.setBalance(rs.getFloat("balance"));
+		}
+			
+
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			connection.close();
+			st.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+		return cpt.getBalance();
+	}
+	}

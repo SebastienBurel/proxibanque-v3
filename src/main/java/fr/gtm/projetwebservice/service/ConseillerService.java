@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import fr.gtm.projetwebservice.dao.CompteDAO;
 import fr.gtm.projetwebservice.dao.ConseillerDAO;
+import fr.gtm.projetwebservice.dao.exceptions.AccountNotFoundDaoException;
 import fr.gtm.projetwebservice.domaine.Compte;
 import fr.gtm.projetwebservice.domaine.Conseiller;
 
@@ -55,8 +56,9 @@ public class ConseillerService {
 	 * @param idNumberDebit id du compte debiteur
 	 * @param amount montant de la transaction
 	 * @throws SQLException
+	 * @throws AccountNotFoundDaoException 
 	 */
-	public void moneyTransfer(int idNumberCredit, int idNumberDebit, float amount) throws SQLException {
+	public void moneyTransfer(int idNumberCredit, int idNumberDebit, float amount) throws SQLException, AccountNotFoundDaoException {
 
 		CompteDAO compteDAO = new CompteDAO();
 		float balanceCredit = compteDAO.getBalanceByIdCompte(idNumberCredit);
@@ -70,10 +72,18 @@ public class ConseillerService {
 			System.out.println("ERREUR : montant supérieur au solde disponible");
 		}else {
 			
-		float newbalanceCredit = balanceCredit + amount;
-		float newbalanceDebit = balanceDebit - amount;
+		float newBalanceCredit = balanceCredit + amount;
+		float newBalanceDebit = balanceDebit - amount;
 		System.out.println(balanceCredit + " " + balanceDebit);
-		System.out.println(newbalanceCredit + " " + newbalanceDebit);
+		System.out.println(newBalanceCredit + " " + newBalanceDebit);
+		
+		Compte compteCrediteur = new Compte(idNumberCredit, newBalanceCredit);
+		Compte compteDebiteur = new Compte(idNumberDebit, newBalanceDebit);
+		
+		compteDAO.updateAccount(compteCrediteur);
+		compteDAO.updateAccount(compteDebiteur);
+		
+		
 		}
 		
 		

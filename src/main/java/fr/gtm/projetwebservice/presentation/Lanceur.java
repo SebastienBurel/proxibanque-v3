@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import fr.gtm.projetwebservice.dao.CompteDAO;
+import fr.gtm.projetwebservice.dao.exceptions.AccountNotFoundDaoException;
 import fr.gtm.projetwebservice.domaine.Compte;
 import fr.gtm.projetwebservice.service.ConseillerService;
 
 public class Lanceur {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, AccountNotFoundDaoException {
 		
 
 		//Compte cpt = new Compte();
@@ -33,7 +34,7 @@ public class Lanceur {
 		//test methode dans conseiller
 		
 		ConseillerService conseillerService = new ConseillerService();
-		conseillerService.moneyTransfer(10054890, 10054891, 1500);
+		conseillerService.moneyTransfer(10054890, 10054894, 500);
 		
 
 	}

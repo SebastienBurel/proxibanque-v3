@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="fr.gtm.projetwebservice.domaine.Conseiller" %>
 <%@ page session="true"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,6 +15,13 @@
 <title>List of clients</title>
 </head>
 <body>
+
+	<h1>Bienvenue <em><c:out value="${Conseiller.name}"/> <c:out value="${Conseiller.surname}"/></em> !</h1>
+	 <h2>Information utilisateur :</h2>
+		<ul>
+			<li>Login : <c:out value="${Conseiller.login}"/>
+			<li>Mot de passe : <c:out value="${Conseiller.password}"/>
+		</ul>
 	<div class="container-fluid">
 		<header> <nav class="navbar navbar-inverse bg-primary">
 		<div class="container-fluid">

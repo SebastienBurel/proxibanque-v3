@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="fr.gtm.projetwebservice.domaine.Conseiller" %>
+<%@ page session="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,6 +52,12 @@
 </script>
 </head>
 <body>
+	<h1>Bienvenue <em><c:out value="${Conseiller.name}"/> <c:out value="${Conseiller.surname}"/></em> !</h1>
+	 <h2>Votre information :</h2>
+		<ul>
+			<li>Numero Identifiant : <c:out value="${Conseiller.idConseiller}"/>
+			
+		</ul>
   <div class="container-fluid">
     <header>
 
@@ -61,7 +73,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="./ProxiBanqueHome.html">
+            <a class="navbar-brand" href="/proxibanquev3/index.jsp">
               <span class=" glyphicon glyphicon-home"></span>
               ProxiBanque
             </a>
@@ -71,11 +83,11 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="./ConseillerService.html">Conseiller service</a></li>
-              <li><a href="./ListOfClients.html">List of clients</a></li>
-              <li class="active"><a href="./UpdateClientInformation.html">Update client<span class="sr-only">(current)</span></a></li>
-              <li><a href="./ListOfClientAccounts.html">Client accounts</a></li>
-              <li><a href="./Transfer.html">Transfer from one account to another</a></li>
+              <li><a href="/proxibanquev3/html/ConseillerService.jsp">Conseiller service</a></li>
+              <li><a href="/proxibanquev3/html/listOfclients.jsp">List of clients</a></li>
+              <li class="active"><a href="/proxibanquev3/html/UpdateClientInformation.jsp">Update client<span class="sr-only">(current)</span></a></li>
+              <li><a href="/proxibanquev3/html/ListOfClientAccounts.jspl">Client accounts</a></li>
+              <li><a href="/proxibanquev3/html/Transfer.jsp">Transfer from one account to another</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -115,27 +127,7 @@
 		  </div>
 		</div>
 
-      <!--  Salutation:<br>
-      	<select name="salutation">
-      	<option value="selection">Selectionner</option>
-          <option value="monsieur">Mr.</option>
-          <option value="madame">Mme</option>
-          <option value="mademoiselle">Melle</option>
-      	</select> 
-        <br><br>
-      	Nom:<br>
-      	<input type="text" name="lastname" id="lastnameId" value="">
-      	<br>
-      	Prenom:<br>
-      	<input type="text" name="firstname" id="firstnameId">
-      	<br>
-      	Email:<br>
-      	<input type="text" name="email" id="email" value="">
-      	<br>
-      	Adresse:<br>
-      	<input type="text" name="adresse" id="adresse" value=""> -->
-      	<br>
-      	
+        	
       	<input type="submit" value="Submit">
       </form>
 

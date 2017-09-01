@@ -125,7 +125,7 @@ function TransferMoney() {
 			int idNumberCredit = compteC.getIdNumber();
 			int idNumberDebit = compteD.getIdNumber();
 			double amount =  compteC.getAmount();
-			ResultatVirement r = conseillerService.moneyTransfer(idNumberCredit, idNumberDebit, (float) amount);
+			//ResultatVirement r = conseillerService.moneyTransfer(idNumberCredit, idNumberDebit, (float) amount);
 			
 			
 		

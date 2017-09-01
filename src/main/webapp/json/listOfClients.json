@@ -1,6 +1,1 @@
-[
-{"id":1,"nom":"DeNiro","prenom":"Robert","email":"vfhregh@gmail.com","adresse":"023 rue de Bayonne,Toulouse","accounts":[{"numberOfAccount":10, "typeOfAccount": "Compte Courant", "solde":"1000"}, {"numberOfAccount":20, "typeOfAccount": "Compte Epargne", "solde":"100"}]},
-{"id":2,"nom":"Pacino","prenom":"Al","email":"gtm@free.fr","adresse":"blabla,Bla","accounts":[{"numberOfAccount":30, "typeOfAccount": "Compte Courant", "solde":"400"}, {"numberOfAccount":40, "typeOfAccount": "Compte Epargne", "solde":"200"}]},
-{"id":3,"nom":"Marunica","prenom":"Sanja","email":"test@yahoo.fr","adresse":"123 rue de la paix,Toulouse","accounts":[{"numberOfAccount":50, "typeOfAccount": "Compte Courant", "solde":"100"}, {"numberOfAccount":60, "typeOfAccount": "Compte Epargne", "solde":"20"}]},
-{"id":4,"nom":"Tran","prenom":"Richard","email":"azerty@yahoo.fr","adresse":"456 avenue Foch,Paris","accounts":[{"numberOfAccount":70, "typeOfAccount": "Compte Courant", "solde":"400"}, {"numberOfAccount":80, "typeOfAccount": "Compte Epargne", "solde":"500"}]}
-]
+[{"idClient":0,"idConseiller":0,"surname":"Botha","name":"bakkies","adress":"1, rue du passage","zipCode":null,"city":null,"telephone":null,"email":null},{"idClient":0,"idConseiller":0,"surname":"Wilkinson","name":"johnny","adress":"44 impasse du chateau","zipCode":null,"city":null,"telephone":null,"email":null}]

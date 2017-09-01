@@ -10,7 +10,20 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
- 
+    <servlet>
+    <description>Afficher Clients</description>
+    <display-name>AfficheClient</display-name>
+    <servlet-name>AfficheClient</servlet-name>
+    <servlet-class>fr.gtm.projetwebservice.service.AfficheCLient</servlet-class>
+  </servlet>
+   
+   
+    <servlet>
+    <description>Transfer money</description>
+    <display-name>Transfer money</display-name>
+    <servlet-name>ServletMoneyTransfert</servlet-name>
+    <servlet-class>fr.gtm.projetwebservice.presentation.ServletMoneyTransfert</servlet-class>
+  </servlet>
    
    <servlet>
     <description>Validation of authentification</description>
@@ -35,6 +48,5 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
 
- 
   
 </web-app>

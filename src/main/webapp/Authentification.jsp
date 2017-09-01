@@ -29,7 +29,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="./ProxiBanqueHome.html">PROXIBANQUE
+            <a class="navbar-brand" href="/proxibanquev3/html/ProxiBanqueHome.jsp">PROXIBANQUE
               <span class=" glyphicon glyphicon-home"></span>
               ProxiBanque
             </a>
@@ -39,22 +39,17 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="Authentification.html">Authentification</a></li>
-              <li style="display: none" id="cache1"><a href="./ConseillerService.html">Conseiller service</a></li>
-              <li style="display: none" id="cache2"><a href="./ListOfClients.html">List of clients</a></li>
-              <li style="display: none" id="cache3"><a href="./UpdateClientInformation.html">Update client</a></li>
-              <li style="display: none" id="cache4"><a href="./ListOfClientAccounts.html">Client accounts</a></li>
-              <li style="display: none" id="cache5"><a href="./Transfer.html">Transfer from one account to another</a></li>
-            
+              <li class="active"><a href="/proxibanquev3/Authentification.jsp">Authentification</a></li>
+                        
             
             <%
 						if (session.getAttribute("conseillerLogin") != null) {
 					%>
-					<li><a href="./ConseillerService.html">Conseiller service</a></li>
-					<li><a href="./listofclients.jsp">List of clients</a></li>
-					<li><a href="./UpdateClientInformation.html">Update client</a></li>
-					<li><a href="./ListOfClientAccounts.html">Client accounts</a></li>
-					<li><a href="./Transfer.html">Transfer from one account to
+					<li><a href="/proxibanquev3/html/ConseillerService.jsp">Conseiller service</a></li>
+					<li><a href="/proxibanquev3/html/listofclients.jsp">List of clients</a></li>
+					<li><a href="/proxibanquev3/html/UpdateClientInformation.jsp">Update client</a></li>
+					<li><a href="/proxibanquev3/html/ListOfClientAccounts.jsp">Client accounts</a></li>
+					<li><a href="/proxibanquev3/html/Transfer.jsp">Transfer from one account to
 							another</a></li>
 					<%
 						}

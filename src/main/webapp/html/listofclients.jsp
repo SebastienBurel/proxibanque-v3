@@ -11,16 +11,39 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src="../js/ListOfClients.js"></script>
+<script>
+  let buildList = function(clients){
+
+		let tableBody = "";
+
+		for(let i=0; i < clients.length; i++){
+			let client = clients[i];
+			tableBody += "<tr><td>" + client.nom +
+			"</td><td>" + client.prenom + "</td><td>" +
+			client.email + "</td><td>" + client.adresse +
+			"</td>" +
+      "<td><a href=\"UpdateClientInformation.jsp?id="+client.id+"\"><span class=\"glyphicon glyphicon-edit\"> Update </span></a>"+
+      " | <a href=\"listOfClientAccounts.jsp?id="+client.id+"\"><span class=\"glyphicon glyphicon-euro\"> Comptes</span></a>"+
+      "</td></tr>";
+		}
+		let elementDiv = document.getElementById("tableListOfClientsBody");
+		elementDiv.innerHTML = tableBody;
+
+		console.log(tableBody);
+}
+  getListOfClients(buildList);
+</script>
 
 <title>List of clients</title>
 </head>
 <body>
 
 	<h1>Bienvenue <em><c:out value="${Conseiller.name}"/> <c:out value="${Conseiller.surname}"/></em> !</h1>
-	 <h2>Information utilisateur :</h2>
+	 <h2>Votre information :</h2>
 		<ul>
-			<li>Login : <c:out value="${Conseiller.login}"/>
-			<li>Mot de passe : <c:out value="${Conseiller.password}"/>
+			<li>Numero Identifiant : <c:out value="${Conseiller.idConseiller}"/>
+			
 		</ul>
 	<div class="container-fluid">
 		<header> <nav class="navbar navbar-inverse bg-primary">
@@ -36,7 +59,7 @@
 						class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="./ProxiBanqueHome.html"> <span
+				<a class="navbar-brand" href="/proxibanquev3/index.jsp"> <span
 					class=" glyphicon glyphicon-home"></span> ProxiBanque
 				</a>
 
@@ -46,20 +69,20 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="./ConseillerService.html">Conseiller service</a></li>
-					<li class="active"><a href="./ListOfClients.html">List of
+					<li><a href="/proxibanquev3/html/ConseillerService.jsp">Conseiller service</a></li>
+					<li class="active"><a href="/proxibanquev3/html/listOfclients.jsp">List of
 							clients<span class="sr-only">(current)</span>
 					</a></li>
-					<li><a href="./UpdateClientInformation.html">Update client</a></li>
-					<li><a href="./ListOfClientAccounts.html">Client accounts</a></li>
-					<li><a href="./Transfer.html">Transfer from one account to
+					<li><a href="/proxibanquev3/html/UpdateClientInformation.jsp">Update client</a></li>
+					<li><a href="/proxibanquev3/html/ListOfClientAccounts.jsp">Client accounts</a></li>
+					<li><a href="/proxibanquev3/html/Transfer.jsp">Transfer from one account to
 							another</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					<li><span onclick="history.back()">Return</span></li>
 					<li>
-						<form action="Logout"
+						<form class="nav navbar-nav navbar"action="Logout"
 							method="post">
 							<input type="submit" value="Logout" />
 						</form>
@@ -71,8 +94,7 @@
 		</div>
 		</nav> </header>
 
-		${sessionScope.conseillerLogin}
-		<c:out value="${sessionScope.conseillerLogin}" />
+		
 		
 		<table class="table table-striped">
 			<tr>
@@ -87,7 +109,7 @@
 			</tbody>
 		</table>
 		
-		${sessionScope.conseillerLogin}
+		
 </body>
 
 </html>

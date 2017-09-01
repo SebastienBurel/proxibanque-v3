@@ -20,13 +20,15 @@ public class ConseillerDAO extends AbstractDAO {
 		
 		Connection connection = getConnection();
 		
-		String selectSQL = "SELECT login, password, idconseiller FROM conseiller WHERE login = ? ";
+		String selectSQL = "SELECT surname, name, login, password, idconseiller FROM conseiller WHERE login = ? ";
 		PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
 		preparedStatement.setString(1, login);
 		ResultSet rs = preparedStatement.executeQuery();
 		if (rs.next()) {
 			
 			conseiller = new Conseiller();
+			conseiller.setSurname(rs.getString("surname"));
+			conseiller.setName(rs.getString("name"));
 			conseiller.setLogin(rs.getString("login"));
 			conseiller.setPassword(rs.getString("password"));
 			conseiller.setIdConseiller(rs.getLong("idconseiller"));

@@ -12,6 +12,18 @@ public class Compte {
 		this.idClient = idClient;
 		this.balance = balance;
 	}
+	
+	
+	
+
+	public Compte(int idNumber, float balance) {
+		super();
+		this.idNumber = idNumber;
+		this.balance = balance;
+	}
+
+
+
 
 	public Compte() {
 		super();

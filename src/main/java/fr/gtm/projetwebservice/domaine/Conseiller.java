@@ -17,6 +17,13 @@ public class Conseiller {
 		this.password = password;
 	}
 
+	public Conseiller(String login, String password) {
+		super();
+		this.login = login;
+		this.password = password;
+		
+	}
+	
 	public Conseiller() {
 		super();
 	}
@@ -59,6 +66,12 @@ public class Conseiller {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "Conseiller [surname=" + surname + ", name=" + name + ", login=" + login + ", password=" + password
+				+ "]";
 	}
 	
 	

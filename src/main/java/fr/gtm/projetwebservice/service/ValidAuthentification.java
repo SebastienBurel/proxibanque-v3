@@ -31,13 +31,16 @@ public class ValidAuthentification extends HttpServlet{
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		traitement(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		traitement(request,response);
+	}
+	protected void traitement(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = null;		
 		
 		response.setContentType("text/html");
@@ -58,7 +61,7 @@ public class ValidAuthentification extends HttpServlet{
 			// Put conseiller login and id in session
 			session.setAttribute("conseillerLogin", conseiller.getLogin());
 			session.setAttribute("conseillerId", conseiller.getIdConseiller());
-			
+			session.setAttribute("Conseiller", conseiller);			
 			// Remove error message of login
 			session.removeAttribute("errorLogin");
 			

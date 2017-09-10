@@ -70,7 +70,7 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="/proxibanquev3/html/ConseillerService.jsp">Conseiller service</a></li>
-					<li class="active"><a href="/proxibanquev3/html/listOfclients.jsp">List of
+					<li class="active"><a href="/proxibanquev3/html/listofclients.jsp">List of
 							clients<span class="sr-only">(current)</span>
 					</a></li>
 					<li><a href="/proxibanquev3/html/UpdateClientInformation.jsp">Update client</a></li>

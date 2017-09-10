@@ -29,10 +29,10 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="/proxibanquev3/html/ProxiBanqueHome.jsp">PROXIBANQUE
-              <span class=" glyphicon glyphicon-home"></span>
-              ProxiBanque
-            </a>
+<!--             <a class="navbar-brand" href="/proxibanquev3/html/ProxiBanqueHome.jsp">PROXIBANQUE -->
+<!--               <span class=" glyphicon glyphicon-home"></span> -->
+<!--               ProxiBanque -->
+<!--             </a> -->
 
           </div>
 

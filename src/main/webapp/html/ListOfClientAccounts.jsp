@@ -91,10 +91,10 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a href="/proxibanquev3/html/ConseillerService.jsp">Conseiller service</a></li>
-              <li><a href="/proxibanquev3/html/listOfclients.jsp">List of clients</a></li>
-              <li><a href="/proxibanquev3/html/UpdateClientInformation.jspl">Update client<span class="sr-only">(current)</span></a></li>
+              <li><a href="/proxibanquev3/html/listofclients.jsp">List of clients</a></li>
+              <li><a href="/proxibanquev3/html/UpdateClientInformation.jsp">Update client<span class="sr-only">(current)</span></a></li>
               <li class="active"><a href="/proxibanquev3/html/ListOfClientAccounts.jsp">Client accounts<span class="sr-only">(current)</span></a></li>
-              <li><a href="/proxibanquev3/html/Transfer.jspl">Transfer from one account to another</a></li>
+              <li><a href="/proxibanquev3/html/Transfer.jsp">Transfer from one account to another</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

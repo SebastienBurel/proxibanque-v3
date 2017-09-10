@@ -45,7 +45,7 @@ function TransferMoney() {
 
 <title>Proxi Banque Web Static</title>
 </head>
-<body>
+<body onLoad="TransferMoney()">
 	<h1>Bienvenue <em><c:out value="${Conseiller.name}"/> <c:out value="${Conseiller.surname}"/></em> !</h1>
 	 <h2>Votre information :</h2>
 		<ul>
@@ -94,50 +94,51 @@ function TransferMoney() {
       </nav>
     </header>
  
-			<form method = "POST" action="ServletMoneyTransfert">
+<!-- 			<form method = "POST" action="/presentation/ServletMoneyTransfert"> -->
 			
-			  <div class="form-group">
-			    <label for="idCompte1">Account to Credit :</label>
-			    <input type="number" class="form-control" id="idCompte1" name="idCredit">
-			  </div>
+<!-- 			  <div class="form-group"> -->
+<!-- 			    <label for="idCompte1">Account to Credit :</label> -->
+<!-- 			    <input type="number" class="form-control" id="idCompte1" name="idCredit"> -->
+<!-- 			  </div> -->
 			  
-			  <div class="form-group">
-			    <label for="idCompte2">Account to Debit :</label>
-			    <input type="number" class="form-control" id="idCompte2" name="idDebit">
-			  </div>
+<!-- 			  <div class="form-group"> -->
+<!-- 			    <label for="idCompte2">Account to Debit :</label> -->
+<!-- 			    <input type="number" class="form-control" id="idCompte2" name="idDebit"> -->
+<!-- 			  </div> -->
 			  
-			  <div class="form-group">
-			    <label for="amount">Amount :</label>
-			    <input type="number" class="form-control" id="amount" name="amount">
-			  </div>
+<!-- 			  <div class="form-group"> -->
+<!-- 			    <label for="amount">Amount :</label> -->
+<!-- 			    <input type="number" class="form-control" id="amount" name="amount"> -->
+<!-- 			  </div> -->
 			  
-			  <input type="submit" onclick="TransferMoney();" class="btn btn-success" value="Transfer">
-			</form> 
-			<br/>
-			<br/>
-			<br/>
-			<div id="soldeCompte1"  class="alert alert-success" style="display:none">
+<!-- 			  <input type="submit" onclick="TransferMoney();" class="btn btn-success" value="Transfer"> -->
+<!-- 			</form>  -->
+<!-- 			<br/> -->
+<!-- 			<br/> -->
+<!-- 			<br/> -->
+<!-- 			<div id="soldeCompte1"  class="alert alert-success" style="display:none"> -->
 			
-<%-- 			<% --%>
-// 			Compte compteC = (Compte) session.getAttribute("CompteCredit");
-// 			Compte compteD = (Compte) session.getAttribute("CompteDebit");
+<%			
+	Compte compteC = (Compte) session.getAttribute("CompteCredit"); 
+	Compte compteD = (Compte) session.getAttribute("CompteDebit"); 
 			
-// 			ConseillerService conseillerService = new ConseillerService();
-// 			int idNumberCredit = compteC.getIdNumber();
-// 			int idNumberDebit = compteD.getIdNumber();
-// 			double amount =  compteC.getAmount();
-// 			//ResultatVirement r = conseillerService.moneyTransfer(idNumberCredit, idNumberDebit, (float) amount);
-			
-			
-		
-<%-- 			%> --%>
+	ConseillerService conseillerService = new ConseillerService(); 
+	int idNumberCredit = compteC.getIdNumber();
+	int idNumberDebit = compteD.getIdNumber(); 
+	double amount =  compteC.getAmount(); 	
+ 	conseillerService.moneyTransfer(idNumberCredit, idNumberDebit, (float) amount);
+ 	
+ 	
+ 	ResultatVirement r = new ResultatVirement();
+
+			%> 
 			
 			</div>
-			
+			<table id="divResultat2" class="alert alert-success table table-striped"></table>
 			
 			<div id="soldeCompte2"  class="alert alert-success" style="display:none"></div>
 			
-		</div>
+		
 	
 	
 	

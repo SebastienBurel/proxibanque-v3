@@ -67,7 +67,7 @@ public class ServletMoneyTransfert extends HttpServlet{
 				
 					
 			// Choose to go on list of client jsp
-			dispatcher = request.getRequestDispatcher("/html/Transfer.jsp");
+			dispatcher = request.getRequestDispatcher("/html/Transfer2.jsp");
 				
 		
 		// Redirect to the jsp chose before

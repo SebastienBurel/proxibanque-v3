@@ -36,7 +36,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="/proxibanquev3/index.jsp">
+            <a class="navbar-brand" href="/proxibanquev3/ProxiBanque.jsp">
               <span class=" glyphicon glyphicon-home"></span>
               ProxiBanque
             </a>
@@ -46,11 +46,11 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li style="display: none" id="cache1"><a href="/proxibanquev3/html/ConseillerService.html">Conseiller service</a></li>
+              <li style="display: none" id="cache1"><a href="/proxibanquev3/html/ConseillerService.jsp">Conseiller service</a></li>
               <li style="display: none" id="cache2"><a href="/proxibanquev3/html/listofclients.jsp">List of clients</a></li>
-              <li style="display: none" id="cache3"><a href="/proxibanquev3/html/UpdateClientInformation.html">Update client</a></li>
-              <li style="display: none" id="cache4"><a href="/proxibanquev3/html/ListOfClientAccounts.html">Client accounts</a></li>
-              <li style="display: none" id="cache5"><a href="/proxibanquev3/html/Transfer.html">Transfer from one account to another</a></li>
+              <li style="display: none" id="cache3"><a href="/proxibanquev3/html/UpdateClientInformation.jsp">Update client</a></li>
+              <li style="display: none" id="cache4"><a href="/proxibanquev3/html/ListOfClientAccounts.jsp">Client accounts</a></li>
+              <li style="display: none" id="cache5"><a href="/proxibanquev3/html/Transfer.jsp">Transfer from one account to another</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
